@@ -6,6 +6,7 @@ let attempts = 1;
 
 // Initialize the game
 function startGame() {
+    updateScoreboard();
     resetGame();
     attempts = 1;
     updateTextContent('h1', '¡Adivina el número secreto!');
