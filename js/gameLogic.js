@@ -23,6 +23,7 @@ export function generateSecretNumber() {
 
 // Reset the game
 export function resetGame() {
+
     attempts = STARTING_TRIES;
     numbersGuessed = [];
     secretNumber = generateSecretNumber();

@@ -1,7 +1,7 @@
 import { checkGuess, MAX_NUMBER, MIN_NUMBER, resetGame } from "./gameLogic.js";
 import { clearInputField, toggleButtonState, updateTextContent } from "./ui.js";
 
-let attempts = 0;
+let attempts = 1;
 
 // Initialize the game
 function startGame() {
@@ -35,8 +35,13 @@ function handleGuess() {
 
     return;
 }
+
+function handleReset() {
+    startGame();
+    clearInputField('#userValue');
+}
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.container__boton').addEventListener('click', handleGuess);
-    document.querySelector('#restart').addEventListener('click', startGame);
-    startGame();  // Initialize the game when it loads
+    document.querySelector('#restart').addEventListener('click', handleReset);
+    startGame();
 })
