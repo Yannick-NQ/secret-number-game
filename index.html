@@ -10,41 +10,59 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/style.css" />
-    <title>JS Game</title>
+    <title>JS - Secret Number Game</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="container__contenido">
-        <div class="container__informaciones">
-          <div class="container__texto">
-            <h1></h1>
-            <p class="texto__parrafo"></p>
+    <div class="main-container">
+      <!-- Scoreboard Section -->
+      <div class="container__scoreboard">
+        <h2>Tabla de Puntajes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Intentos</th>
+              <th>Puntaje</th>
+            </tr>
+          </thead>
+          <tbody id="scoreTable"></tbody>
+        </table>
+      </div>
+      <!-- Game Section -->
+      <div class="container__game">
+        <div class="container__contenido">
+          <div class="container__informaciones">
+            <div class="container__texto">
+              <h1></h1>
+              <p class="texto__parrafo"></p>
+            </div>
+            <div class="container__puntaje">
+              <p class="texto__puntaje"></p>
+            </div>
+            <input
+              type="number"
+              id="userValue"
+              min="1"
+              max="10"
+              class="container__input"
+            />
+            <div class="chute container__botones">
+              <button class="container__boton">Intentar</button>
+              <button id="restart" class="container__boton" disabled>
+                Nuevo juego
+              </button>
+            </div>
           </div>
-          <div class="container__puntaje">
-            <p class="texto__puntaje"></p>
-          </div>
-          <input
-            type="number"
-            id="userValue"
-            min="1"
-            max="10"
-            class="container__input"
+          <img
+            src="./img/ia.png"
+            alt="Una persona mirando a la izquierda"
+            class="container__imagen-persona"
           />
-          <div class="chute container__botones">
-            <button class="container__boton">Intentar</button>
-            <button id="restart" class="container__boton" disabled>
-              Nuevo juego
-            </button>
-          </div>
         </div>
-        <img
-          src="./img/ia.png"
-          alt="Una persona mirando a la izquierda"
-          class="container__imagen-persona"
-        />
       </div>
     </div>
+
     <script src="js/app.js" type="module"></script>
   </body>
 </html>

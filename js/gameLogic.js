@@ -28,6 +28,7 @@ export function resetGame() {
     attempts = STARTING_TRIES;
     numbersGuessed = [];
     secretNumber = generateSecretNumber();
+    console.log(secretNumber);
 }
 
 // Check if the player's guess is correct
@@ -61,3 +62,18 @@ export function saveHighScore(score) {
     }
 }
 
+// Get score history from localStorage
+export function getScoreHistory() {
+    const storedHistory = localStorage.getItem('scoreHistory');
+    return storedHistory ? JSON.parse(storedHistory) : [];
+}
+
+// Save score history on localStorage
+export function saveScoreHistory(newScore) {
+    const scoreHistory = getScoreHistory();
+    scoreHistory.push(newScore);
+
+    // Sort by score in descending order and limit to top 10
+    scoreHistory.sort((a, b) => b.score - a.score);
+    localStorage.setItem('scoreHistory', JSON.stringify(scoreHistory.slice(0, 10)))
+}
