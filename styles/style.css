@@ -101,6 +101,10 @@ body::before {
   background-color: #b0002a;
 }
 
+#reset:disabled {
+  background-color: #a38484;
+}
+
 .container__boton:disabled {
   background: #898989;
 }
@@ -282,6 +286,10 @@ button {
   .container__botones {
     width: 100%;
     gap: 0;
+  }
+
+  .container__puntaje {
+    font-size: 1rem;
   }
 
   .container__game {

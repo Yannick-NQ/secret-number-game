@@ -22,13 +22,20 @@ export function generateSecretNumber() {
     return generatedNumber;
 }
 
-// Reset the game
-export function resetGame() {
+// Create new game the game
+export function restartGame() {
 
     attempts = STARTING_TRIES;
     numbersGuessed = [];
     secretNumber = generateSecretNumber();
     console.log(secretNumber);
+}
+
+// Restart the game by resetting the game variables and updating the UI, and the scoreboard
+export function resetGame() {
+    restartGame();
+    localStorage.removeItem('highScore');
+    localStorage.removeItem('scoreHistory');
 }
 
 // Check if the player's guess is correct
