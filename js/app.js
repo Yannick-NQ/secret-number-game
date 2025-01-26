@@ -21,7 +21,7 @@ function handleGuess() {
     const result = checkGuess(userGuess);
 
     if (result === 'correct') {
-        updateTextContent('p', `Acertaste el número en ${attempts} ${(attempts === 1) ? 'vez' : 'veces'}`);
+        updateTextContent('p', `Acertaste el número en ${attempts} ${(attempts === 1) ? 'intento' : 'intentos'}`);
         toggleButtonState('#restart', false);
     } else {
         if (result === 'too high') {
@@ -39,6 +39,7 @@ function handleGuess() {
 function handleReset() {
     startGame();
     clearInputField('#userValue');
+    toggleButtonState('#restart', true);
 }
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.container__boton').addEventListener('click', handleGuess);
