@@ -76,11 +76,15 @@ function handleGuess() {
 }
 
 function handleReset() {
-    resetGame();
-    updateScoreboard();
-    clearInputField('#userValue');
-    toggleButtonState('#restart', true);
-    toggleButtonState('#reset', true);
+    const confirmReset = confirm('¡Atención! Reiniciar el juego eliminará todos los puntajes guardados. ¿Estás seguro?');
+    if (confirmReset) {
+        resetGame();
+        updateScoreboard();
+        clearInputField('#userValue');
+        updateTextContent('.texto__puntaje', '')
+        toggleButtonState('#restart', true);
+        toggleButtonState('#reset', true);
+    }
 }
 
 function handleRestart() {
