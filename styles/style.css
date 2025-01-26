@@ -51,6 +51,14 @@ body::before {
   bottom: 0;
 }
 
+.container__puntaje {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: start;
+}
+
 .container__informaciones {
   flex: 1;
   padding: 3rem;
@@ -99,7 +107,7 @@ body::before {
 
 h1 {
   font-family: 'Chakra Petch', sans-serif;
-  font-size: 72px;
+  font-size: 56px;
   padding-bottom: 3rem;
 }
 

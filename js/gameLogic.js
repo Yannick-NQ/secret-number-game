@@ -7,6 +7,7 @@ export const STARTING_TRIES = 1;
 let secretNumber = 0;
 let numbersGuessed = [];
 let attempts = 0;
+let highScore = 0;
 
 // Generate a random number between MIN_NUMBER and MAX_NUMBER
 export function generateSecretNumber() {
@@ -37,6 +38,26 @@ export function checkGuess(userGuess) {
         return 'too high';
     } else {
         return 'too low';
+    }
+}
+
+// Calculate the scored based on the attempts
+export function calculateScore(attempts) {
+    const maxScore = 100;
+    return Math.max(maxScore - attempts * 10, 0); // 10 points less each attempt
+}
+
+// Get the high score from localStorage
+export function getHighScore() {
+    const storedScore = localStorage.getItem('highScore');
+    return storedScore ? parseInt(storedScore) : 0;
+}
+
+// Save the high score on localStorage
+export function saveHighScore(score) {
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('highScore', highScore);
     }
 }
 
