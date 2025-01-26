@@ -61,7 +61,6 @@ function handleGuess() {
             updateTextContent('.texto__puntaje', `Puntaje más alto: ${highScore}`)
         }
         toggleButtonState('#restart', false);
-        toggleButtonState('#reset', false);
     } else {
         if (result === 'too high') {
             updateTextContent('p', 'El número secreto es menor');
@@ -71,6 +70,7 @@ function handleGuess() {
         attempts++;
         clearInputField('#userValue')
     }
+    toggleButtonState('#reset', false);
 
     return;
 }
