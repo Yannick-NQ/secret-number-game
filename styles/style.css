@@ -30,9 +30,16 @@ body::before {
   opacity: 0.4;
 }
 
-.container {
+.main-container {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.container__game {
   width: 1200px;
-  height: 600px;
+  height: 630px;
+  min-height: 630px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,6 +110,60 @@ body::before {
 .container__botones {
   display: flex;
   gap: 2em;
+}
+
+.container__scoreboard {
+  flex: 1;
+  min-height: 630px;
+  padding: 2rem;
+  background-image: url('../img/Ruido.png');
+  border: 1px solid #1875e8;
+  border-radius: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: 100% 100%;
+}
+
+.container__scoreboard h2 {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.container__scoreboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.container__scoreboard th,
+.container__scoreboard td {
+  padding: 0.8rem;
+  text-align: center;
+  border-bottom: 1px solud rgba(255, 255, 255, 0.2);
+  font-family: 'Inter', sans-serif;
+}
+
+.container__scoreboard th {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.container__scoreboard td {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.container__scoreboard tr:nth-child(even) {
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.container__scoreboard tr:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 h1 {
