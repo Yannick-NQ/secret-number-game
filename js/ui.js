@@ -50,10 +50,10 @@ export function updateImageSource(imageSelector, state) {
     const imageElement = document.querySelector(imageSelector);
     if (imageElement) {
         const images = {
-            hello: '../img/bender_hello.png',
-            wrong: '../img/bender.png',
-            close: '../img/bender_ok.png',
-            correct: '../img/bender_party.png',
+            hello: '/img/bender_hello.png',
+            wrong: '/img/bender.png',
+            close: '/img/bender_ok.png',
+            correct: '/img/bender_party.png',
         };
         imageElement.src = images[state] || images.hello;
     } else {
