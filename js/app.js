@@ -1,5 +1,5 @@
 import { calculateScore, checkGuess, getHighScore, getScoreHistory, getSecretNumber, MAX_NUMBER, MIN_NUMBER, resetGame, restartGame, saveHighScore, saveScoreHistory } from "./gameLogic.js";
-import { clearInputField, restartPageBackground, toggleButtonState, updatePageBackgroundColor, updateTextContent } from "./ui.js";
+import { clearInputField, restartPageBackground, toggleButtonState, updateImageSource, updatePageBackgroundColor, updateTextContent } from "./ui.js";
 
 let attempts = 1;
 
@@ -11,6 +11,7 @@ function startGame() {
     attempts = 1;
     updateTextContent('h1', '¡Adivina el número secreto!');
     updateTextContent('p', `Indica un número del ${MIN_NUMBER} al ${MAX_NUMBER}`);
+    updateImageSource('.container__imagen-persona', 'hello');
 }
 
 function handleKeyPress(event) {
@@ -43,6 +44,7 @@ function handleGuess() {
 
     if (isNaN(userGuess) || userGuess < MIN_NUMBER || userGuess > MAX_NUMBER) {
         updateTextContent('p', 'Por favor, introduce un número válido.');
+        updateImageSource('.container__imagen-persona', 'hello');
         return;
     }
     const secretNumber = getSecretNumber();
@@ -53,6 +55,7 @@ function handleGuess() {
     updatePageBackgroundColor(difference);
 
     if (result === 'correct') {
+        updateImageSource('.container__imagen-persona', 'correct');
         const score = calculateScore(attempts - 1);
         saveHighScore(score);
         const highScore = getHighScore();
@@ -72,6 +75,13 @@ function handleGuess() {
         } else {
             updateTextContent('p', 'El número secreto es mayor');
         }
+
+        if (difference <= 2) {
+            updateImageSource('.container__imagen-persona', 'close');
+        } else {
+            updateImageSource('.container__imagen-persona', 'wrong');
+        }
+
         attempts++;
         clearInputField('#userValue')
     }
