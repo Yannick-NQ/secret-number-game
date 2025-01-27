@@ -52,11 +52,12 @@ function handleGuess() {
     const result = checkGuess(userGuess);
     const difference = Math.abs(userGuess - secretNumber);
 
+    console.log(difference);
+
     updatePageBackgroundColor(difference);
 
     if (result === 'correct') {
         updateImageSource('.container__imagen-persona', 'correct');
-        updatePageBackgroundColor(difference);
         const score = calculateScore(attempts - 1);
         saveHighScore(score);
         const highScore = getHighScore();
