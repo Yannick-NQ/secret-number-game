@@ -257,6 +257,12 @@ button {
     overflow-y: scroll;
   }
 
+  body,
+  #userValue,
+  p {
+    transition: background-color 0.5s ease;
+  }
+
   .main-container {
     width: 100%;
     flex-direction: column;
