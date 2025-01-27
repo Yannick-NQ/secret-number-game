@@ -1,8 +1,11 @@
 # Juego del Número Secreto 🎮
 ![image](https://github.com/user-attachments/assets/338099ae-d3a0-401f-82aa-2e891d7bc36b)
 
-
 Este proyecto es una versión mejorada del clásico **Juego del Número Secreto**. El sistema genera un número aleatorio y el jugador debe adivinarlo, recibiendo pistas de si el número ingresado es mayor o menor que el secreto. ¡Pon a prueba tus habilidades de adivinanza! 🧠
+
+<p align="center">
+  <a href="https://yannick-nq.github.io/secret-number-game/" target="_blank">Probar Juego Número Secreto 2.0</a>
+</p>
 
 ## 🚀 Objetivo del Proyecto
 
