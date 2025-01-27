@@ -56,13 +56,13 @@ function handleGuess() {
 
     if (result === 'correct') {
         updateImageSource('.container__imagen-persona', 'correct');
+        updatePageBackgroundColor(difference);
         const score = calculateScore(attempts - 1);
         saveHighScore(score);
         const highScore = getHighScore();
 
         saveScoreHistory({ attempts, score });
         updateScoreboard();
-        updatePageBackgroundColor();
 
         updateTextContent('p', `Acertaste el número en ${attempts} ${(attempts === 1) ? 'intento' : 'intentos'}, tu puntaje es: ${score}`);
         if (highScore !== 0) {
