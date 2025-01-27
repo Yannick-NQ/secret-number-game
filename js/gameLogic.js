@@ -33,7 +33,6 @@ export function restartGame() {
     attempts = STARTING_TRIES;
     numbersGuessed = [];
     secretNumber = generateSecretNumber();
-    console.log(secretNumber);
 }
 
 // Restart the game by resetting the game variables and updating the UI, and the scoreboard
