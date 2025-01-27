@@ -87,7 +87,7 @@ function handleReset() {
         resetGame();
         updateScoreboard();
         clearInputField('#userValue');
-        updateTextContent('.texto__puntaje', '')
+        startGame();
         toggleButtonState('#restart', true);
         toggleButtonState('#reset', true);
     }
