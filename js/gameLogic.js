@@ -22,6 +22,11 @@ export function generateSecretNumber() {
     return generatedNumber;
 }
 
+// returns the secret number
+export function getSecretNumber() {
+    return secretNumber;
+}
+
 // Create new game the game
 export function restartGame() {
 

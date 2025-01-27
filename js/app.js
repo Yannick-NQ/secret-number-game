@@ -1,5 +1,5 @@
-import { calculateScore, checkGuess, getHighScore, getScoreHistory, MAX_NUMBER, MIN_NUMBER, resetGame, restartGame, saveHighScore, saveScoreHistory } from "./gameLogic.js";
-import { clearInputField, toggleButtonState, updateTextContent } from "./ui.js";
+import { calculateScore, checkGuess, getHighScore, getScoreHistory, getSecretNumber, MAX_NUMBER, MIN_NUMBER, resetGame, restartGame, saveHighScore, saveScoreHistory } from "./gameLogic.js";
+import { clearInputField, restartPageBackground, toggleButtonState, updatePageBackgroundColor, updateTextContent } from "./ui.js";
 
 let attempts = 1;
 
@@ -45,8 +45,12 @@ function handleGuess() {
         updateTextContent('p', 'Por favor, introduce un número válido.');
         return;
     }
+    const secretNumber = getSecretNumber();
 
     const result = checkGuess(userGuess);
+    const difference = Math.abs(userGuess - secretNumber);
+
+    updatePageBackgroundColor(difference);
 
     if (result === 'correct') {
         const score = calculateScore(attempts - 1);
@@ -78,6 +82,7 @@ function handleGuess() {
 function handleReset() {
     const confirmReset = confirm('¡Atención! Reiniciar el juego eliminará todos los puntajes guardados. ¿Estás seguro?');
     if (confirmReset) {
+        restartPageBackground();
         resetGame();
         updateScoreboard();
         clearInputField('#userValue');
@@ -89,6 +94,7 @@ function handleReset() {
 
 function handleRestart() {
     startGame();
+    restartPageBackground();
     clearInputField('#userValue');
     toggleButtonState('#restart', true);
 }
