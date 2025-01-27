@@ -7,7 +7,7 @@ let attempts = 1;
 // Initialize the game
 function startGame() {
     updateScoreboard();
-    resetGame();
+    restartGame();
     attempts = 1;
     updateTextContent('h1', '¡Adivina el número secreto!');
     updateTextContent('p', `Indica un número del ${MIN_NUMBER} al ${MAX_NUMBER}`);
@@ -59,6 +59,7 @@ function handleGuess() {
 
         saveScoreHistory({ attempts, score });
         updateScoreboard();
+        updatePageBackgroundColor();
 
         updateTextContent('p', `Acertaste el número en ${attempts} ${(attempts === 1) ? 'intento' : 'intentos'}, tu puntaje es: ${score}`);
         if (highScore !== 0) {
